@@ -17,19 +17,19 @@ const Home: NextPage = () => {
           CRUD
         </HeaderName>
         <HeaderNavigation>
-          <HeaderMenuItem isCurrentPage href="/">Home</HeaderMenuItem>
-          <HeaderMenuItem href="/employees">Employees</HeaderMenuItem>
+          <HeaderMenuItem href="/">Home</HeaderMenuItem>
+          <HeaderMenuItem isCurrentPage href="/employees">Employees</HeaderMenuItem>
           <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
         </HeaderNavigation>
       </Header>
       <Head>
-        <title>Node CRUD</title>
+        <title>Employees</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to Employees!
         </h1>
 
         <p className={styles.description}>
