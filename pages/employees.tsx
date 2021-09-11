@@ -1,6 +1,9 @@
+import axios from 'axios'
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
+  Button,
   Header,
   HeaderMenu,
   HeaderMenuItem,
@@ -10,6 +13,16 @@ import {
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
+  React.useEffect(() => {
+    getEmployees()
+  }, [])
+
+  async function getEmployees() {
+    const url = 'http://localhost:3000/api/employees'
+    const response = await axios.get(url)
+    console.log(response.data);
+  }
+
   return (
     <div className={styles.container}>
       <Header>
