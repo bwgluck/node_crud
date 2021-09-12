@@ -73,10 +73,16 @@ const Employees: NextPage = () => {
   )
 }
 
-Employees.getInitialProps = async () => {
+Employees.getInitialProps = async ( { query: { _id } }) => {
   // fetch data on server
   const url = 'http://localhost:3000/api/employees'
-  const response = await axios.get(url)
+  let response
+  if ( _id ) {
+    const payload = { params: { _id } }
+    response = await axios.get(url, payload)
+  } else {
+    response = await axios.get(url)
+  }
   console.log(response.data);
   // return response data as an object
   return { employees: response.data };
