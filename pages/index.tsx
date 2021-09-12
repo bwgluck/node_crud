@@ -12,11 +12,11 @@ import styles from '../styles/Home.module.scss'
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Header>
+      <Header aria-label="node-crud">
         <HeaderName href="#" prefix="Node">
           CRUD
         </HeaderName>
-        <HeaderNavigation>
+        <HeaderNavigation aria-label="node-crud">
           <HeaderMenuItem isCurrentPage href="/">Home</HeaderMenuItem>
           <HeaderMenuItem href="/employees">Employees</HeaderMenuItem>
           <HeaderMenuItem href="#">Link 3</HeaderMenuItem>

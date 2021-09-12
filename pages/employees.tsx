@@ -3,16 +3,14 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
-  Button,
   Header,
-  HeaderMenu,
   HeaderMenuItem,
   HeaderName,
   HeaderNavigation
 } from 'carbon-components-react'
 import styles from '../styles/Home.module.scss'
 
-const Home: NextPage = () => {
+const Employees: NextPage = () => {
   React.useEffect(() => {
     getEmployees()
   }, [])
@@ -25,11 +23,11 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Header>
+      <Header aria-label="node-crud">
         <HeaderName href="#" prefix="Node">
           CRUD
         </HeaderName>
-        <HeaderNavigation>
+        <HeaderNavigation aria-label="node-crud">
           <HeaderMenuItem href="/">Home</HeaderMenuItem>
           <HeaderMenuItem isCurrentPage href="/employees">Employees</HeaderMenuItem>
           <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
@@ -84,4 +82,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Employees
