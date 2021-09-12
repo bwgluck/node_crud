@@ -11,15 +11,6 @@ import {
 import styles from '../styles/Home.module.scss'
 
 const Employees: NextPage = () => {
-  React.useEffect(() => {
-    getEmployees()
-  }, [])
-
-  async function getEmployees() {
-    const url = 'http://localhost:3000/api/employees'
-    const response = await axios.get(url)
-    console.log(response.data);
-  }
 
   return (
     <div className={styles.container}>
@@ -80,6 +71,16 @@ const Employees: NextPage = () => {
       </main>
     </div>
   )
+}
+
+Employees.getInitialProps = async () => {
+  // fetch data on server
+  const url = 'http://localhost:3000/api/employees'
+  const response = await axios.get(url)
+  console.log(response.data);
+  // return response data as an object
+  return { employees: response.data };
+  // note: This object will be merged with existing props
 }
 
 export default Employees

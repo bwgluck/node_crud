@@ -1,7 +1,21 @@
 import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
+import App from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+class MyApp extends App {
+  static async getInitialProps({ Component, ctx }: any) {
+    let pageProps: any = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
+
+  render() {
+    const {Component, pageProps} = this.props;
+    return <Component {...pageProps} />
+  }
 }
+
 export default MyApp
