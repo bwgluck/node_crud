@@ -1,5 +1,42 @@
 [
     {
-        "status": "success!"
+        "firstName": "Joe",
+        "lastName": "MacMillan",
+        "hireDate": "1980-02-24",
+        "role": "CEO",
+        "ronSwanson": "Standard birth control methods are usually ineffective against a Swanson.",
+        "dadJoke": "Last night me and my girlfriend watched three DVDs back to back. Luckily I was the one facing the TV."
+    },
+    {
+        "firstName": "Donna",
+        "lastName": "Clark",
+        "hireDate": "1980-02-25",
+        "role": "VP",
+        "ronSwanson": "Fish, for sport only, not for meat. Fish meat is practically a vegetable.",
+        "dadJoke": "An apple a day keeps the bullies away. If you throw it hard enough."
+    },
+    {
+        "firstName": "Gordon",
+        "lastName": "Clark",
+        "hireDate": "1980-02-25",
+        "role": "Manager",
+        "ronSwanson": "Well, I am not usually one for speeches. So, goodbye.",
+        "dadJoke": "I'm glad I know sign language, it's pretty handy."
+    },
+    {
+        "firstName": "Cameron",
+        "lastName": "Howe",
+        "hireDate": "1980-02-25",
+        "role": "Manager",
+        "ronSwanson": "What's cholesterol?",
+        "dadJoke": "I ate a clock yesterday. It was so time consuming."
+    },
+    {
+        "firstName": "Yoyo",
+        "lastName": "Engbert",
+        "hireDate": "1982-05-04",
+        "role": "Lackey",
+        "ronSwanson": "My only official recommendations are US Army-issued mustache trimmers, Morton's Salt, and the C.R. Lawrence Fein two inch axe-style scraper oscillating knife blade.",
+        "dadJoke": "I gave my friend 10 puns hoping that one of them would make him laugh. Sadly, no pun in ten did."
     }
 ]
