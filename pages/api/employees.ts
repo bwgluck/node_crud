@@ -5,15 +5,61 @@ import connectDb from '../../utils/connectDB'
 connectDb()
 
 const employees: any = async (req: any, res: any) => {
+  switch (req.method) {
+    case 'GET':
+      await handleGetRequest(req, res)
+      break;
+    case 'DELETE':
+      break;
+    case 'POST':
+      await handlePostRequest(req, res)
+      break;
+    case 'PUT':
+      break;
+    default:
+      res.status(405).send(`Method ${req.method} not allowed`);
+      break;
+  }
+};
+
+async function handleGetRequest(req: any, res: any) {
   let employees
-  console.log('query', req.query)
+
   if (Object.keys(req.query).length !== 0) {
     const { _id } = req.query
     employees = await Employees.findOne({ _id })
   } else {
     employees = await Employees.find()
   }
-  res.status(200).json(employees)
+
+  res.status(200).json(employees);
+}
+
+async function handlePostRequest(req: any, res: any) {
+  
+  const {
+    firstName,
+    lastName,
+    hireDate,
+    role,
+    ronSwanson,
+    dadJoke
+  } = req.body
+
+  if (!firstName || !lastName || !hireDate || !role || !ronSwanson || !dadJoke) {
+    return res.status(422).send('Employee missing one or more fields.')
+  }
+
+  const employee = await new Employees({
+    firstName,
+    lastName,
+    hireDate,
+    role,
+    ronSwanson,
+    dadJoke
+  }).save()
+
+  res.status(201).json(employee)
 }
 
 export default employees
