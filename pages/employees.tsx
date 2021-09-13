@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
@@ -12,6 +12,7 @@ import styles from '../styles/Home.module.scss'
 import baseUrl from '../utils/baseUrl'
 
 const Employees: NextPage = () => {
+  // let [id] = useState('613ed4e2fa6325f9cb69e633')
 
   async function createEmployee() {
     console.log('create')
@@ -28,10 +29,15 @@ const Employees: NextPage = () => {
     }
     const response = await axios.post(url, payload)
     console.log({response})
+    // id = response.data._id
   }
 
-  function deleteEmployee() {
+  async function deleteEmployee() {
     console.log('delete')
+    const url = `${baseUrl}/api/employees`
+    const payload = {}
+    const response = await axios.delete(url, payload)
+    console.log('Employee deleted', {response})
   }
 
   async function getDadJoke() {

@@ -10,6 +10,7 @@ const employees: any = async (req: any, res: any) => {
       await handleGetRequest(req, res)
       break;
     case 'DELETE':
+      await handleDeleteRequest(req, res)
       break;
     case 'POST':
       await handlePostRequest(req, res)
@@ -21,6 +22,12 @@ const employees: any = async (req: any, res: any) => {
       break;
   }
 };
+
+async function handleDeleteRequest(req: any, res: any) {
+  const { _id } = req.query;
+  await Employees.findOneAndDelete({ _id })
+  res.status(204).json({})
+}
 
 async function handleGetRequest(req: any, res: any) {
   let employees
