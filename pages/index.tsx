@@ -19,7 +19,6 @@ const Home: NextPage = () => {
         <HeaderNavigation aria-label="node-crud">
           <HeaderMenuItem isCurrentPage href="/">Home</HeaderMenuItem>
           <HeaderMenuItem href="/employees">Employees</HeaderMenuItem>
-          <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
         </HeaderNavigation>
       </Header>
       <Head>

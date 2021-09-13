@@ -9,8 +9,22 @@ import {
   HeaderNavigation
 } from 'carbon-components-react'
 import styles from '../styles/Home.module.scss'
+import baseUrl from '../utils/baseUrl'
+
 
 const Employees: NextPage = () => {
+
+  function createEmployee() {
+    console.log('create')
+  }
+
+  function deleteEmployee() {
+    console.log('delete')
+  }
+
+  function updateEmployee() {
+    console.log('update')
+  }
 
   return (
     <div className={styles.container}>
@@ -21,7 +35,6 @@ const Employees: NextPage = () => {
         <HeaderNavigation aria-label="node-crud">
           <HeaderMenuItem href="/">Home</HeaderMenuItem>
           <HeaderMenuItem isCurrentPage href="/employees">Employees</HeaderMenuItem>
-          <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
         </HeaderNavigation>
       </Header>
       <Head>
@@ -31,43 +44,41 @@ const Employees: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Employees!
+          Employees
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a
+            href="#"
+            className={styles.card}
+            onClick={() => createEmployee()}
+          >
+            <h2>Create an employee &rarr;</h2>
+            <p>Create a new employee in the database</p>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="#"
             className={styles.card}
+            onClick={() => updateEmployee()}
           >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h2>Update an employee &rarr;</h2>
+            <p>Update an employee in the database</p>
           </a>
 
           <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="#"
             className={styles.card}
+            onClick={() => deleteEmployee()}
           >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <h2>Delete employee &rarr;</h2>
+            <p>Delete an employee from the database</p>
           </a>
+
         </div>
+        <p className={styles.description}>
+          Employee list:
+        </p>
       </main>
     </div>
   )
@@ -75,7 +86,7 @@ const Employees: NextPage = () => {
 
 Employees.getInitialProps = async ( { query: { _id } }) => {
   // fetch data on server
-  const url = 'http://localhost:3000/api/employees'
+  const url = `${baseUrl}/api/employees`
   let response
   if ( _id ) {
     const payload = { params: { _id } }
